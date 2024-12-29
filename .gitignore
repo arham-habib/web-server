@@ -1,0 +1,50 @@
+# Compiled output (Rust/Cargo)
+target/
+
+# Dependencies (usually tracked via Cargo.lock and Cargo.toml)
+**/node_modules/
+*.lock
+
+# Logs and debug output
+*.log
+*.out
+*.err
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Secrets or sensitive config files
+.env
+*.key
+*.pem
+
+# Docker-related files
+docker-compose.override.yml
+.env.docker.local
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+*~
+
+# Fly.io specific (generated files)
+fly/volumes/
+
+# Static build artifacts
+static/css/
+static/js/
+static/*.map
+
+# Generated HTML (if you're building it dynamically)
+html/build/
+
+# Temporary cache files
+.cache/
