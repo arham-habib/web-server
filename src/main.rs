@@ -58,6 +58,7 @@ fn handle_connection(mut stream: TcpStream) {
     let (status_line, filename, content_type) = match request_line.as_str() {
         "GET / HTTP/1.1" => ("HTTP/1.1 200 OK", base_dir.join("html/home.html"), "text/html"),
         "GET /blog HTTP/1.1" => ("HTTP/1.1 200 OK", base_dir.join("html/blog.html"), "text/html"),
+        "GET /publications HTTP/1.1" => ("HTTP/1.1 200 OK", base_dir.join("html/publications.html"), "text/html"),
         _ if request_line.starts_with("GET /static/") => {
             let path = request_line.split_whitespace().nth(1).unwrap_or("");
             println!("Serving static file: {}", path);

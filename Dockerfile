@@ -16,5 +16,10 @@ RUN cargo build --release --bin web_server
 # We do not need the Rust toolchain to run the binary!
 FROM debian:bookworm-slim AS runtime
 WORKDIR /app
+# Copy the binary
 COPY --from=builder /app/target/release/web_server /usr/local/bin
+# Copy static assets
+COPY html/ /app/html/
+COPY static/ /app/static/
+COPY blog/ /app/blog/
 ENTRYPOINT ["/usr/local/bin/web_server"]
