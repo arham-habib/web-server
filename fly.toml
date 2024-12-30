@@ -7,10 +7,11 @@ app = 'web-server-personal'
 primary_region = 'sjc'
 
 [build]
+include = ["html/**", "static/**"]
 
 [env]
-  HOST = '0.0.0.0'
-  PORT = '8080'
+  HOST = "0.0.0.0"
+  PORT = "8080"
 
 [http_service]
   internal_port = 8080
@@ -24,3 +25,15 @@ primary_region = 'sjc'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
